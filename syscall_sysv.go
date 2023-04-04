@@ -40,9 +40,6 @@ func syscall_syscall9X(fn, a1, a2, a3, a4, a5, a6, a7, a8, a9 uintptr) (r1, r2, 
 //
 // NOTE: Linux is currently not supported and will panic if called.
 func NewCallback(fn interface{}) uintptr {
-	if runtime.GOOS == "linux" {
-		panic("purego: NewCallback not supported")
-	}
 	return compileCallback(fn)
 }
 
